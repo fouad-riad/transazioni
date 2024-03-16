@@ -1,0 +1,27 @@
+<!-- <div class="card" style="width: 18rem;" *ngIf="transazioni">
+    <div class="card-header">
+      {{transazioni.business}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{transazioni.name}}</li>
+      <li class="list-group-item">{{transazioni.account}}</li>
+      <li class="list-group-item">{{transazioni.date}}</li>
+      <li class="list-group-item">{{transazioni.type}}</li>
+      <li class="list-group-item">{{transazioni.amount}}</li>
+    </ul>
+  </div> -->
+  
+    <div class="col d-flex" *ngIf="transazioni">
+      <div class="card w-100">
+        
+        <div class="card-body"[ngClass]="getBackgroundClass(transazioni.type)" >
+          <h3 class="card-title">{{transazioni.business}}</h3>
+          <p class="card-text">{{transazioni.name}}</p>
+          <p class="card-text">ACCOUNT:{{transazioni.account}}</p>
+          <p class="card-text">DATE:{{transazioni.date | date}}</p>
+          <p class="card-text" >TYPE:{{transazioni.type}}</p>
+          <p class="card-text" [ngClass]="importoTransazione(transazioni.amount)">AMOUNT:{{transazioni.amount | currency:"EUR"}}</p>
+
+        </div>
+      </div>
+    
