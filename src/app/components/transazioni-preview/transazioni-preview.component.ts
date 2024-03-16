@@ -16,7 +16,7 @@ getBackgroundClass(type: string ) {
     case 'invoice':
       return 'bg-success'; 
    
-    case 'deposit':
+    case 'withdrawal':
       return 'bg-secondary'; 
    
     default:
