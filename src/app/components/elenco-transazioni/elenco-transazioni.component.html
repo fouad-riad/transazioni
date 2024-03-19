@@ -1,3 +1,7 @@
-<div class="row row-cols-1  row-cols-md-3 g-4" >
-    <app-transazioni-preview *ngFor="let t of transazioni" [transazioni]="t"></app-transazioni-preview>
+<div class="d-flex flex-wrap gap-3">
+  <app-transazioni-preview
+    *ngFor="let t of transazioni"
+    [transazioni]="t"
+    (onRichiestaEliminazione)="eliminaTrasazione($event)"
+  ></app-transazioni-preview>
 </div>

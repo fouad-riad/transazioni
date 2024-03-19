@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Transazione } from '../../dati/models/transazioni';
 
 @Component({
@@ -9,7 +9,7 @@ import { Transazione } from '../../dati/models/transazioni';
 export class TransazioniPreviewComponent {
   @Input()
 transazioni: Transazione | undefined
-getBackgroundClass(type: string ) {
+/* getBackgroundClass(type: string ) {
  
   switch (type) {
     
@@ -27,7 +27,14 @@ importoTransazione(amount: number): string{
   
   return amount > 700 ? 'bg-warning' : ''; 
   
+} */
+@Output()
+onRichiestaEliminazione = new EventEmitter<Transazione>()
+/* onRichiestaEliminazione = output<Transazione>() */
+elimina(){
+this.onRichiestaEliminazione.emit(this.transazioni)
 }
+
 
 
 

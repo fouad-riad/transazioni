@@ -9,4 +9,10 @@ import { Transazione } from '../../dati/models/transazioni';
 })
 export class ElencoTransazioniComponent {
 transazioni :Transazione[]= TRANSAZIONI
+eliminaTrasazione(t:Transazione){
+ const i = this.transazioni.indexOf(t);
+ if(i > -1){
+  this.transazioni.splice(i,1)
+ }
+}
 }

@@ -11,7 +11,7 @@
     </ul>
   </div> -->
   
-    <div class="col d-flex" *ngIf="transazioni">
+<!--     <div class="col d-flex" *ngIf="transazioni">
       <div class="card w-100">
         
         <div class="card-body"[ngClass]="getBackgroundClass(transazioni.type)" >
@@ -23,5 +23,20 @@
           <p class="card-text" [ngClass]="importoTransazione(transazioni.amount)">AMOUNT:{{transazioni.amount | currency:"EUR"}}</p>
 
         </div>
+      </div> -->
+      <div class="card" style="width: 26rem;" *ngIf="transazioni" [ngClass]="{'bg-success':transazioni.type=='invoice','bg-secondary':transazioni.type == 'withdrawal'}">
+      
+        <div class="card-body"  >
+          <h5 class="card-title">{{transazioni.business}}</h5>
+          <p class="card-text">{{transazioni.name}}</p>
+          <p class="card-text">ACCOUNT:{{transazioni.account}}</p>
+          <p class="card-text">DATE:{{transazioni.date * 1000 | date: "dd/mm/yyyy hh:mm:ss"}}</p>
+          <p class="card-text" >TYPE:{{transazioni.type}}</p>
+          <p class="card-text" [ngClass]="{'bg-warning':transazioni.amount > 700}">AMOUNT:{{transazioni.amount | currency:"EUR"}}</p>
+          <hr>
+          <button type="button" class="btn btn-danger" (click)="elimina()">
+            <i class="bi bi-trash"></i>
+          </button>
       </div>
+    </div>
     
